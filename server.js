@@ -30,7 +30,7 @@ app.post("/agendar", async (req, res) => {
 
     const mailOptions = {
         from: process.env.EMAIL_USER,
-        to: "maylarodrigues2018@gmail.com", 
+        to: "maylarodrigues2018@gmail.com",
         subject: "Novo Agendamento Recebido",
         text: `Nome: ${name}\nData: ${date}\nHorário: ${time}\nCelular: ${int} Parabéms meu amor, mais um agendamento para você`
     };
@@ -44,7 +44,12 @@ app.post("/agendar", async (req, res) => {
     }
 });
 
-// Inicia o servidor
+fetch("https://seu-backend-no-render.onrender.com/agendar", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(formData)
+})
+
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
 });
