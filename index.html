@@ -42,6 +42,9 @@
         
             <label for="time">Horário:</label>
             <input type="time" id="time" name="time" required>
+
+            <label for="int">Celular:</label>
+            <input type="int" id="int" name="int"  placeholder="(11) 98765-4321" required>
         
             <button type="submit">Agendar</button>
         </form>
@@ -51,6 +54,7 @@
             event.preventDefault();
         
             let formData = {
+                number: document.getElementById("int").value,
                 name: document.getElementById("name").value,
                 date: document.getElementById("date").value,
                 time: document.getElementById("time").value

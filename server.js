@@ -7,11 +7,11 @@ const bodyParser = require("body-parser");
 const app = express();
 const port = 3000;
 
-// Configuração do middleware
+
 app.use(cors());
 app.use(bodyParser.json());
 
-// Configuração do transporte do Nodemailer
+
 const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -20,11 +20,11 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-// Rota para receber o agendamento e enviar e-mail
-app.post("/agendar", async (req, res) => {
-    const { name, date, time } = req.body;
 
-    if (!name || !date || !time) {
+app.post("/agendar", async (req, res) => {
+    const { number, name, date, time } = req.body;
+
+    if (!name || !date || !time || !int) {
         return res.status(400).json({ error: "Todos os campos são obrigatórios!" });
     }
 
@@ -32,7 +32,7 @@ app.post("/agendar", async (req, res) => {
         from: process.env.EMAIL_USER,
         to: "maylarodrigues2018@gmail.com", 
         subject: "Novo Agendamento Recebido",
-        text: `Nome: ${name}\nData: ${date}\nHorário: ${time}`
+        text: `Nome: ${name}\nData: ${date}\nHorário: ${time}\nCelular: ${int} Parabéms meu amor, mais um agendamento para você`
     };
 
     try {
