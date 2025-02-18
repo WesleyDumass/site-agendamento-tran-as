@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AfroVerso - Tranças</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="shortcut icon" href="img/icon.jpg" type="image/x-icon">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header-container">
+        <h1 class="title">AfroVerso</h1>
+    </header>
+
+
+    <section class="gallery">
+        <h2>Galeria de Tranças</h2>
+        <div class="image-grid">
+            <img src="img/cris.jpg" alt="Trança estilosa">
+            <img src="img/gi.jpg" alt="Trança colorida">
+            <img src="img/mel.jpg" alt="Trança com acessórios">
+        </div>
+    </section>
+
+
+    <section class="agendamento">
+        <h2>Agende seu horário</h2>
+
+        <form id="bookingForm">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required>
+        
+            <label for="date">Data:</label>
+            <input type="date" id="date" name="date" required>
+        
+            <label for="time">Horário:</label>
+            <input type="time" id="time" name="time" required>
+        
+            <button type="submit">Agendar</button>
+        </form>
+        
+        <script>
+        document.getElementById("bookingForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+        
+            let formData = {
+                name: document.getElementById("name").value,
+                date: document.getElementById("date").value,
+                time: document.getElementById("time").value
+            };
+        
+            fetch("http://localhost:3000/agendar", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => alert(data.message))
+            .catch(error => console.error("Erro:", error));
+        });
+        </script>
+        
+
+    </section>
+
+    <section class="contact">
+        <h2>Contato</h2>
+        <p>Tem dúvidas? Entre em contato pelo WhatsApp!</p>
+    </section>
+
+    <a href="https://wa.me/11933480597" class="whatsapp-button">
+        <img src="img/wtz.png" alt="WhatsApp" class="logo">
+    </a>
+
+    <footer>
+        <p>&copy; 2025 Mayla Rodrigues. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+
+</html>

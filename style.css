@@ -1,0 +1,120 @@
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #f3e5d8;
+    color: #5a3825;
+    margin: 0;
+    padding: 0;
+}
+
+.header-container {
+    background-color: #8b5e3b;
+    text-align: center;
+    padding: 10px;
+}
+
+.title {
+    font-family: "Dancing Script", cursive;
+    font-size: 36px;
+    color: #fff;
+}
+
+.gallery {
+    text-align: center;
+    padding: 20px;
+}
+
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.image-grid img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.image-grid img:hover {
+    transform: scale(1.1);
+}
+
+.about,
+.testimonials,
+.contact,
+.agendamento {
+    text-align: center;
+    padding: 20px;
+    background-color: #e8c1a0;
+    margin: 20px auto;
+    border-radius: 10px;
+    max-width: 90%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input,
+button {
+    margin: 10px;
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+    border: none;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #8b5e3b;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #5a3825;
+}
+
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.logo {
+    height: 80px;
+}
+
+footer {
+    background-color: #8b5e3b;
+    color: #e8c1a0;
+    text-align: center;
+    padding: 5px;
+}
+
+
+@media (max-width: 768px) {
+    .image-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-grid img {
+        max-width: 100%;
+    }
+
+    input,
+    button {
+        width: 100%;
+    }
+}
